@@ -1,5 +1,5 @@
 behave==1.2.6
 selenium==4.8.0
-Python 3.9.20
+Python == 3.9.20
 
 
