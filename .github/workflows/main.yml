@@ -11,22 +11,28 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
-    - name: show todays date
-      run: |
-        date -u
-    - name: Install Google Chrome
-        run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install -y ./google-chrome-stable_current_amd64.deb
+      - uses: actions/checkout@v4
 
-    - name: Run login.feature
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: Show today's date
+        run: date -u
+
+      - name: Install Google Chrome
+        run: |
+          wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.90-1_amd64.deb
+          sudo apt install -y ./google-chrome-stable_114.0.5735.90-1_amd64.deb
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install behave selenium webdriver-manager
+
+      - name: Run login.feature
         run: behave features/login.feature
