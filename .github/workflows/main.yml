@@ -1,12 +1,10 @@
 name: Run Behave Tests
 
 on:
-  schedule:
-      - cron: '0 0 * * 1' # At 00:00 on Monday
-#  push:
-#    branches: [ "master" ]
-#  pull_request:
-#    branches: [ "master" ]
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 permissions:
   contents: read
