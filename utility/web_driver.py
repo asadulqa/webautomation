@@ -7,13 +7,13 @@ class WebDriverFactory:
     @staticmethod
     def get_driver():
         options = Options()
-        options.add_argument("--headless")  # Comment this if you want to see the browser in dev
+        options.add_argument("--headless")  # Optional
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
 
+        # 🔥 Pin to a known working version (until 135 is available)
         driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
+            service=Service(ChromeDriverManager(version="114.0.5735.90").install()),
             options=options
         )
-        driver.set_window_size(1920, 1080)
         return driver
