@@ -1,6 +1,3 @@
-
-allure-behave==2.8.40
-allure-pytest==2.14.0
 behave==1.2.6
 selenium==4.8.0
 Python 3.9.20
