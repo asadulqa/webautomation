@@ -30,7 +30,8 @@ jobs:
       - name: Install Google Chrome 114
         run: |
           wget https://mirror.kraski.tv/soft/google_chrome/linux/114.0.5735.90/google-chrome-stable_114.0.5735.90-1_amd64.deb
-          sudo apt install ./google-chrome-stable_114.0.5735.90-1_amd64.deb
+          sudo apt install -y --allow-downgrades ./google-chrome-stable_114.0.5735.90-1_amd64.deb
+
 
       - name: Install ChromeDriver 114
         run: |
