@@ -16,4 +16,5 @@ class WebDriverFactory:
             service=Service(ChromeDriverManager(version="114.0.5735.90").install()),
             options=options
         )
+
         return driver
