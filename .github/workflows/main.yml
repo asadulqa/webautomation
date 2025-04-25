@@ -27,10 +27,18 @@ jobs:
           pip install -r requirements.txt
           pip install behave selenium webdriver-manager
 
-      - name: Install Google Chrome v114
+      - name: Install Google Chrome 114
         run: |
-          wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.90-1_amd64.deb
-          sudo apt install -y ./google-chrome-stable_114.0.5735.90-1_amd64.deb
+          wget https://mirror.kraski.tv/soft/google_chrome/linux/114.0.5735.90/google-chrome-stable_114.0.5735.90-1_amd64.deb
+          sudo apt install ./google-chrome-stable_114.0.5735.90-1_amd64.deb
+
+      - name: Install ChromeDriver 114
+        run: |
+          wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+
+
 
 
       - name: Run login.feature
