@@ -1,4 +1,3 @@
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -8,9 +7,10 @@ import shutil
 class WebDriverFactory:
     @staticmethod
     def get_driver():
-        chrome_path = shutil.which("chromium-browser")  # 👈 Get the real path in Actions
-        if chrome_path is None:
-            raise RuntimeError("Chromium is not installed or not found")
+        # ✅ Point to Chromium 114 manually
+        chrome_path = shutil.which("chromium-browser")
+        if not chrome_path:
+            raise RuntimeError("Chromium not found. Make sure it's installed.")
 
         options = Options()
         options.binary_location = chrome_path
@@ -18,10 +18,10 @@ class WebDriverFactory:
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
 
+        # ✅ Use matching ChromeDriver for Chromium 114
         driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager(version="135.0.7049.0").install()),
+            service=Service(ChromeDriverManager(version="114.0.5735.90").install()),
             options=options
         )
-
         driver.set_window_size(1920, 1080)
         return driver
