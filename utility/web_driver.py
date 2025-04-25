@@ -10,7 +10,8 @@ class WebDriverFactory:
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-
+        print("Start the driver")
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        print("End the driver")
         driver.set_window_size(1920, 1080)
         return driver
