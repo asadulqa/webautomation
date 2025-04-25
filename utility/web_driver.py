@@ -19,8 +19,9 @@ class WebDriverFactory:
         options.add_argument("--disable-dev-shm-usage")
 
         driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager(version="114.0.5735.90").install()),
+            service=Service(ChromeDriverManager(version="135.0.7049.0").install()),
             options=options
         )
+
         driver.set_window_size(1920, 1080)
         return driver
