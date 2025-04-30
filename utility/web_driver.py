@@ -3,9 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from utility import credentials
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 class WebDriverFactory:
     @staticmethod
@@ -13,8 +13,8 @@ class WebDriverFactory:
         run_env = os.getenv("RUN_ENV", "local")
 
         if run_env == "browserstack":
-            USERNAME = credentials.USERNAME
-            ACCESS_KEY = credentials.ACCESS_KEY
+            USERNAME = os.getenv('u')
+            ACCESS_KEY = os.getenv("ACCESS_KEY")
             URL = f"https://{USERNAME}:{ACCESS_KEY}@hub-cloud.browserstack.com/wd/hub"
 
             desired_cap = {
