@@ -1,27 +1,57 @@
 # WebAutomation Project
 
-This project is a **Web Automation** framework using **Python**, **Selenium**, **Behave (BDD)**, **webdriver-manager** for automatic browser driver management, and **Allure Reports** for generating test execution reports.
+This project is a **Web Automation** framework using **Python**, **Selenium**, **Behave (BDD)**, `webdriver-manager` for automatic browser driver management, and **Allure Reports** for generating test execution reports.
 
-## Project Overview
+---
 
-The WebAutomation project is designed to perform automated tests on the **SauceDemo** website using **Behavior Driven Development (BDD)**. It uses **Selenium** for web automation, **Behave** for defining BDD scenarios, and **Allure** for generating detailed test reports.
+## 📌 Project Overview
 
-## Project Setup
+The WebAutomation project is designed to perform automated tests on the **SauceDemo** website using **Behavior Driven Development (BDD)** principles. It includes:
 
-### Prerequisites:
+- **Selenium WebDriver**: For automating browser interactions  
+- **Behave**: For writing BDD-style test scenarios  
+- **WebDriver Manager**: To auto-manage browser drivers (no manual download required)  
+- **Allure Reports**: For rich test reporting  
+- **BrowserStack Integration**: For running tests in the cloud across multiple devices/browsers
+
+---
+
+## ⚙️ Project Setup
+
+### ✅ Prerequisites
+
 - Python 3.x (Recommended: Python 3.8 or higher)
 - pip (Python package manager)
-- Google Chrome (or another browser) installed
+- Google Chrome (or another browser)
+- Allure CLI (for generating reports)
 
-### 1. Running Tests
+---
 
-```bash
+### 🔧 Installation
+
+```
 git clone https://github.com/your-username/webautomation.git
 cd webautomation
-pip install -r requirements.txt
-brew install allure
-allure --version
-behave --allure
+pip install -r requirements.txt 
+ ```
+
+
+
+🧪 Run Tests (Locally & on BrowserStack)
+```
+behave
+```
+
+☁️ Run on BrowserStack
+```angular2html
+export RUN_ENV=browserstack
 behave
 
+```
 
+On Windows:
+```angular2html
+set RUN_ENV=browserstack
+behave
+
+```
